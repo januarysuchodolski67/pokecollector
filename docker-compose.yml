@@ -1,0 +1,12 @@
+services:
+  pokecollector:
+    build: .
+    container_name: pokecollector
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    volumes:
+      - ./.env:/app/.env
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
+      - APP_PORT=${APP_PORT}
